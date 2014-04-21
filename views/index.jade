@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .jumbotron.text-center
+      h1
+        span.fa.fa-lock Node Authentication
+
+      p Login or Register with:
+
+      a(href='/login', class='btn btn-default')
+        span.fa.fa-user Local Login
+
+      a(href='/signup', class='btn btn-default')
+        span.fa.fa-user Local Signup
+
+      a(href='/auth/google', class='btn btn-danger')
+        span.fa.fa-google-plus Google+
