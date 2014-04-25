@@ -16,6 +16,7 @@ block content
             div= error.msg
 
       form(action='/signup', method='post')
+        input(type='hidden', name='_csrf', value=locals.csrftoken)
         .form-group
           label Email
           input(type='text', class='form-control', name='email')

@@ -84,6 +84,18 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 router.get('/connect/local', function(req, res) {
   res.render('connect-local', { message: req.flash('loginMessage') });
 }); 
+
+router.use('/connect/local', function(req, res, next) {  // validation middleware
+  req.assert('email', 'Invalid Email').isEmail();
+  req.assert('password', 'Passwords must be 4 - 20 characters long').isLength(4, 20);
+
+  var errors = req.validationErrors(true);
+
+  if (!errors) return next();
+
+  res.render('connect-local', { message: '', errors: errors }); 
+});
+
 router.post('/connect/local', passport.authenticate('local-signup', {
   successRedirect:'/profile',
   failureRedirect: '/connect/local',

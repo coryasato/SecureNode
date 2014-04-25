@@ -22,9 +22,7 @@
     "express-session": "~1.0.2",
     "express-validator": "~2.1.1",
     "csurf": "~1.1.0",
-    "helmet": "~0.2.1"
-  },
-  "devDependencies": {
+    "helmet": "~0.2.1",
     "nodemon": "~1.0.17"
   }
 }

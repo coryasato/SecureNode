@@ -10,7 +10,13 @@ block content
       if (message.length > 0) 
         div(class='alert alert-danger')= message
 
+      if(errors)
+        div(class='alert alert-danger')
+          each error in errors
+            div= error.msg
+
       form(action='/connect/local', method='post')
+        input(type='hidden', name='_csrf', value=locals.csrftoken)
         .form-group
           label Email
           input(type='text', class='form-control', name='email')
